@@ -5,10 +5,14 @@ If an invalid input is given, an error message is shown using
 the error message parameter. A valid input is returned as an
 integer.
 """
-    number = int(input(prompt))
-    while not isinstance(number, int):
-        print(errormsg)
-        number = int(input(prompt))
+    is_int = False
+    while is_int == False:
+        try:
+            number = int(input(prompt))
+        except ValueError:
+            print(errormsg)
+        else:
+            is_int = True
     return number
 
 number = prompt_input(
